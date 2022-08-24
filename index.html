@@ -55,7 +55,9 @@
 </div>
 <script>
 let randomValue = Math.floor(Math.random() * 101);
-let randomValue2 = Math.floor(Math.random() * 101);
+let maxValue = 100;
+let interval = maxValue - randomValue;
+let randomValue2 = Math.floor(Math.random() * interval);
 
 let output1 = document.querySelector(".output1");    
 let output2 = document.querySelector(".output2");
