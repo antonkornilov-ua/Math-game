@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математична гра</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #272828;
+        color: beige;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: xx-large;
+    }
+    #container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+               
+    }
+    .math_quiz{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+    .header-text{
+        margin: 10px;
+    }
+    input, button{
+        text-align: center;
+        align-items: center;
+        height: 30px;
+    }
+    input[type="text"]{
+        font-size: 20px;
+    }
+
+</style>
+</head>
+
+<body>
+<div id="container">
+    <h1 class="header-text">Математична гра</h1>
+
+    <div class="math_quiz">
+        <span class="output1"></span> <span class="sign"> + </span> <span class="output2"></span><span class="sign"> = </span><input type="text" pattern="\d" required><input  type="submit" class="button">
+    </div>
+</div>
+<script>
+let randomValue = Math.floor(Math.random() * 101);
+let randomValue2 = Math.floor(Math.random() * 101);
+
+let output1 = document.querySelector(".output1");    
+let output2 = document.querySelector(".output2");
+let input = document.querySelector("input");
+let button = document.querySelector(".button");
+
+
+function MathGame() {
+    output1.textContent = randomValue;
+    output2.textContent = randomValue2;
+    output1 = randomValue;
+    output2 = randomValue2;
+}
+function calcFunc() {
+      let result = output1 + output2;
+    if (result == input.value) {
+        // alert("Правильно!");
+        input.style.backgroundColor = "green";
+    } else {
+        input.style.backgroundColor = "red";
+        input.setAttribute("disabled", "true")
+        // alert("Подумай ще!");
+    }
+}
+
+    button.addEventListener("click", function () {
+        calcFunc();
+    })
+MathGame()
+
+</script>
+</body>
+</html>
